@@ -4,6 +4,23 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', function(e) {
+    if (e.target.matches('.like-glyph')) {
+      console.log("hi")
+      mimicServerCall()
+      .then(response => console.log(response))
+      .catch( function(error) {
+        console.log(error)
+        const errorModal = document.getElementById('modal')
+        errorModal.textContent = error
+        errorModal.classList.remove("hidden")
+        setTimeout( () => errorModal.classList.add("hidden"), 5000 )
+      })
+    }
+  })
+  
+})
 
 
 
